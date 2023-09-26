@@ -22,7 +22,11 @@ class CompanyListingsViewModel @Inject constructor(
 
     var state by mutableStateOf(CompanyListingsState())
 
-    private var searchJob: Job? =null
+    private var searchJob: Job? = null
+
+    init {
+        getCompanyListings()
+    }
 
     fun onEvent(event: CompanyListingsEvent) {
         when (event) {
@@ -56,6 +60,7 @@ class CompanyListingsViewModel @Inject constructor(
                                 )
                             }
                         }
+
                         is Resource.Error -> Unit
                         is Resource.Loading -> {
                             state = state.copy(isLoading = result.isLoading)

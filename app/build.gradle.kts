@@ -1,12 +1,10 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
     id ("kotlin-parcelize")
-    id ("com.google.devtools.ksp") version "1.6.10-1.0.2"
+    id ("com.google.devtools.ksp") version "1.9.0-1.0.12"
 }
 
 android {
@@ -36,11 +34,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -83,8 +81,8 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha")
 
     // Compose Nav Destinations
-    implementation ("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
-    ksp("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+    implementation ("io.github.raamcosta.compose-destinations:core:1.9.52")
+    ksp("io.github.raamcosta.compose-destinations:ksp:1.9.52")
 
     //Dagger - Hilt
     implementation ("com.google.dagger:hilt-android:2.46.1")
@@ -100,10 +98,10 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
 
     // Room
-    implementation ("androidx.room:room-runtime:2.4.2")
-    kapt ("androidx.room:room-compiler:2.4.2")
+    implementation ("androidx.room:room-runtime:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
 
     // Kotlin Extensions and Coroutines support for Room
-    implementation ("androidx.room:room-ktx:2.4.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
 
 }
